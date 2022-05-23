@@ -7,7 +7,8 @@
     "build": "nx build",
     "test": "nx test",
     "build:css": "postcss libs/style/tailwind.css -o libs/style/main.css",
-    "build:watch": "postcss libs/style/tailwind.css -o libs/style/main.css --watch"
+    "build:watch": "postcss libs/style/tailwind.css -o libs/style/main.css --watch",
+    "server": "json-server --watch db.json -m ./node_modules/json-server-auth --port 5000"
   },
   "private": true,
   "dependencies": {

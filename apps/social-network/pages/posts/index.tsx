@@ -1,24 +1,17 @@
-import postService from '../../lib/api/postService';
 import Post from '../../components/post';
-import { PostModel } from '../../lib/types/post/post';
-import useSWR from 'swr';
 import { useState } from 'react';
 import Button from '../../../../libs/components/Button';
 import { ButtonStyle } from '../../../../libs/components/types';
-import { useRouter } from 'next/router';
+import usePosts from '../../lib/hooks/usePosts';
+import Link from 'next/link';
 
-function usePosts(page: number, limit: number, authorName?: string) {
-  const { data, error } = useSWR<PostModel[], string>(
-    [`/posts`, `?_page=${page}&_limit=${limit}`],
-    postService.get
-  );
+const optionsArray = [5, 10, 15];
+const options = optionsArray.map((opt, index) => (
+  <option key={index} value={opt}>
+    {opt}
+  </option>
+));
 
-  return {
-    posts: data,
-    isLoading: !error && !data,
-    error: error,
-  };
-}
 const Posts = () => {
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(5);
@@ -46,7 +39,11 @@ const Posts = () => {
   let content;
   if (posts) {
     content = posts.map((post, index) => {
-      return <Post key={index} {...post} />;
+      return (
+        <Link key={post.id} href={`/posts/${post.id}`} passHref>
+          <Post key={index} {...post} />
+        </Link>
+      );
     });
   } else if (error) {
     content = <div>{error}</div>;
@@ -54,12 +51,6 @@ const Posts = () => {
     content = <div>Loading..</div>;
   }
 
-  const optionsArray = [5, 10, 15];
-  const options = optionsArray.map((opt, index) => (
-    <option key={index} value={opt}>
-      {opt}
-    </option>
-  ));
   return (
     <div className="flex-col content-center">
       <div className="flex justify-center">

@@ -3,7 +3,6 @@ import { useState } from 'react';
 import Button from '../../../../libs/components/Button';
 import { ButtonStyle } from '../../../../libs/components/types';
 import usePosts from '../../lib/hooks/usePosts';
-import Link from 'next/link';
 
 const optionsArray = [5, 10, 15];
 const options = optionsArray.map((opt, index) => (

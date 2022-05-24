@@ -8,20 +8,16 @@ const PostInfo = ({ post }: { post: PostModel }) => {
 };
 
 export async function getStaticPaths() {
+  const data: PostModel[] = await postService.get();
+  const paths = data.map((post) => {
     return {
-        paths: [
-            {
-                params: { id: '14' }
-            },
-            {
-                params: { id: '15' }
-            },
-            {
-                params: { id: '16' }
-            }
-        ],
-        fallback: false,
+      params: { id: post.id.toString() },
     };
+  });
+  return {
+    paths,
+    fallback: false,
+  };
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {

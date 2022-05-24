@@ -39,11 +39,7 @@ const Posts = () => {
   let content;
   if (posts) {
     content = posts.map((post, index) => {
-      return (
-        <Link key={post.id} href={`/posts/${post.id}`} passHref>
-          <Post key={index} {...post} />
-        </Link>
-      );
+      return <Post key={index} {...post} />;
     });
   } else if (error) {
     content = <div>{error}</div>;

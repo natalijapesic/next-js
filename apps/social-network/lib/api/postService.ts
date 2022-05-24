@@ -7,7 +7,7 @@ class PostService {
     return posts.data;
   }
 
-  async getOne(postId: ParsedUrlQuery) {
+  async getOne(postId) {
     const posts = await axios.get(`/posts/${postId}`);
     return posts.data;
   }

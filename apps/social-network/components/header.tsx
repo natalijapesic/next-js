@@ -1,12 +1,17 @@
 import {
   ButtonStyle,
   InputStyle,
-} from '../../../../libs/components/types/index';
-import Button from '../../../../libs/components/Button';
-import Input from '../../../../libs/components/Input';
+} from '../../../libs/components/types/index';
+import Button from '../../../libs/components/Button';
+import Input from '../../../libs/components/Input';
 import Link from 'next/link';
+import usePosts from '../lib/hooks/usePosts';
+import { useState } from 'react';
 
 const Header = () => {
+  const [authorName, setAuthorName] = useState('');
+  // const { posts, error } = usePosts(1, 5, authorName);
+
   return (
     <div>
       <header className="flex justify-between bg-gray-800">
@@ -15,7 +20,7 @@ const Header = () => {
           <Input
             placeholder="Username"
             type="text"
-            onChange={console.log}
+            onChange={setAuthorName}
             inputStyle={InputStyle.bottom}
             value=""
           />

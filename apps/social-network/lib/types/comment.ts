@@ -1,8 +1,8 @@
-export class Comment {
+export class CommentModel {
   id: number;
   description: string;
-  authorName: string;
-  authorId: number;
+  authorName?: string;
+  authorId?: number;
   postId: number;
   date: string;
 

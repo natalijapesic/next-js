@@ -1,10 +1,17 @@
-import { PostModel } from '../../lib/types/post/post';
+import { PostModel } from '../../../lib/types/post/post';
 import { GetStaticProps } from 'next';
-import React from 'react';
-import postService from '../../lib/api/postService';
+import React, { useState } from 'react';
+import postService from '../../../lib/api/postService';
+import Comments from '../../../components/comment/comments';
 
 const PostInfo = ({ post }: { post: PostModel }) => {
-  return <div>{post.id}</div>;
+  const [show, setShow] = useState(false);
+
+  return (
+    <div>
+      <Comments ></Comments>
+    </div>
+  );
 };
 
 export async function getStaticPaths() {

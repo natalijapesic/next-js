@@ -1,15 +1,14 @@
-import { PostModel } from '../../../lib/types/post/post';
+import { PostModel } from '../../lib/types/post/post';
 import { GetStaticProps } from 'next';
-import React, { useState } from 'react';
-import postService from '../../../lib/api/postService';
-import Comments from '../../../components/comment/comments';
+import React from 'react';
+import postService from '../../lib/api/postService';
+import Comments from '../../components/comment/comments';
 
 const PostInfo = ({ post }: { post: PostModel }) => {
-  const [show, setShow] = useState(false);
 
   return (
     <div>
-      <Comments ></Comments>
+      <Comments></Comments>
     </div>
   );
 };

@@ -5,7 +5,6 @@ import {
 import Button from '../../../libs/components/Button';
 import Input from '../../../libs/components/Input';
 import Link from 'next/link';
-import usePosts from '../lib/hooks/usePosts';
 import { useState } from 'react';
 
 const Header = () => {

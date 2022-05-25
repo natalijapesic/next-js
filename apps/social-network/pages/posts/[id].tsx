@@ -10,7 +10,6 @@ const PostInfo = ({ post }: { post: PostModel }) => {
   return (
     <div>
       <>
-      <CreateComment postId={post.id}/>
       <Comments></Comments>
       </>
     </div>

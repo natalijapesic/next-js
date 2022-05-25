@@ -1,10 +1,10 @@
 import commentService from '../../lib/api/commentService';
 import { useState } from 'react';
 import { CommentModel } from '../../lib/types/comment';
-import { useRouter } from 'next/router';
 
 interface IProps {
-  postId: number;
+  postId: number | undefined;
+  
 }
 
 const CreateComment: React.FC<IProps> = (props: IProps) => {

@@ -3,12 +3,16 @@ import { GetStaticProps } from 'next';
 import React from 'react';
 import postService from '../../lib/api/postService';
 import Comments from '../../components/comment/comments';
+import CreateComment from '../../components/comment/createComment';
 
 const PostInfo = ({ post }: { post: PostModel }) => {
 
   return (
     <div>
+      <>
+      <CreateComment postId={post.id}/>
       <Comments></Comments>
+      </>
     </div>
   );
 };

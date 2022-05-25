@@ -162,6 +162,62 @@
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "postId": 14,
       "date": "Fri, 20 May 2022 06:14:09 GMT"
+    },
+    {
+      "id": 4,
+      "description": "novi komentar",
+      "authorName": "test",
+      "authorId": 1,
+      "postId": 14,
+      "date": "Wed, 25 May 2022 14:01:44 GMT"
+    },
+    {
+      "id": 5,
+      "description": "jos jedan",
+      "authorName": "test",
+      "authorId": 1,
+      "postId": 14,
+      "date": "Wed, 25 May 2022 14:02:24 GMT"
+    },
+    {
+      "id": 6,
+      "description": "opet",
+      "authorName": "test",
+      "authorId": 1,
+      "postId": 14,
+      "date": "Wed, 25 May 2022 14:11:00 GMT"
+    },
+    {
+      "id": 7,
+      "description": "second",
+      "authorName": "test",
+      "authorId": 1,
+      "postId": 14,
+      "date": "Wed, 25 May 2022 14:12:40 GMT"
+    },
+    {
+      "id": 8,
+      "description": "sta on uradi opet",
+      "authorName": "test",
+      "authorId": 1,
+      "postId": 14,
+      "date": "Wed, 25 May 2022 14:12:58 GMT"
+    },
+    {
+      "id": 10,
+      "description": "ok",
+      "authorName": "test",
+      "authorId": 1,
+      "postId": 14,
+      "date": "Wed, 25 May 2022 14:31:10 GMT"
+    },
+    {
+      "id": 11,
+      "description": "opet",
+      "authorName": "test",
+      "authorId": 1,
+      "postId": 14,
+      "date": "Wed, 25 May 2022 14:35:18 GMT"
     }
   ],
   "users": [

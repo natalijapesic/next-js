@@ -20,7 +20,6 @@ const Comments = () => {
   }
   return (
     <div>
-      Opa
       {content}
     </div>
   );

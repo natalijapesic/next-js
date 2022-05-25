@@ -9,7 +9,6 @@ import { useState } from 'react';
 
 const Header = () => {
   const [authorName, setAuthorName] = useState('');
-  // const { posts, error } = usePosts(1, 5, authorName);
 
   return (
     <div>

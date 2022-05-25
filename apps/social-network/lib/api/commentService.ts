@@ -1,4 +1,5 @@
 import axios from '../../../../libs/axiosSetUp';
+import { CommentModel } from '../types/comment';
 
 class CommentService {
   async get() {
@@ -9,6 +10,14 @@ class CommentService {
   async getByPostId(url = '', queryParams = '') {
     const comments = await axios.get(`${url}${queryParams}`);
     return comments.data;
+  }
+
+  async add(newComment: CommentModel) {
+    const response = await axios.post<CommentModel>(
+      '/comments',
+      JSON.stringify(newComment)
+    );
+    return response.status === 201 ? true : false;
   }
 }
 

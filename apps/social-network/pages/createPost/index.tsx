@@ -9,7 +9,6 @@ import {
 } from '../../../../libs/components/types/index';
 import postService from '../../lib/api/postService';
 import { useRouter } from 'next/router';
-import { isConstructorDeclaration } from 'typescript';
 
 const CreatePost = () => {
   const [title, setTitle] = useState('');
@@ -48,7 +47,6 @@ const CreatePost = () => {
           placeholder="Input image url"
           type="url"
         />
-
         <Button
           buttonStyle={ButtonStyle.light}
           type="button"

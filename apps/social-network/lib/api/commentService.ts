@@ -2,22 +2,22 @@ import axios from '../../../../libs/axiosSetUp';
 import { CommentModel } from '../types/comment';
 
 class CommentService {
-  async get() {
+  async get(): Promise<CommentModel[]> {
     const comments = await axios.get(`/comments`);
     return comments.data;
   }
 
-  async getByPostId(url = '', queryParams = '') {
+  async getByPostId(url = '', queryParams = ''): Promise<CommentModel[]> {
     const comments = await axios.get(`${url}${queryParams}`);
     return comments.data;
   }
 
-  async add(newComment: CommentModel) {
+  async add(newComment: CommentModel): Promise<CommentModel> {
     const response = await axios.post<CommentModel>(
       '/comments',
       JSON.stringify(newComment)
     );
-    return response.status === 201 ? true : false;
+    return response.data;
   }
 }
 

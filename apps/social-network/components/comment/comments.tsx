@@ -1,6 +1,6 @@
 import useComments from '../../lib/hooks/useComments';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Comment from '../../components/comment/comment';
 import { CommentModel } from '../../lib/types/comment';
 import CreateComment from './createComment';
@@ -9,12 +9,19 @@ const Comments = () => {
   const router = useRouter();
   const { id } = router.query;
   const { comments, error } = useComments(id);
-  const [sharedComments, setSharedComments] = useState<CommentModel[]>(comments);
+  const [sharedComments, setSharedComments] = useState<CommentModel[]>([]);
 
+  useEffect(() => {
+    setSharedComments(comments);
+  }, [comments]);
 
+  const updateComments = (comment: CommentModel): void => {
+    const newComments: CommentModel[] = [...sharedComments, comment];
+    setSharedComments(newComments);
+  };
   let content;
-  if (comments) {
-    content = comments.map((comment, index) => {
+  if (sharedComments) {
+    content = sharedComments.map((comment, index) => {
       return <Comment key={index} {...comment} />;
     });
   } else if (error) {
@@ -25,9 +32,11 @@ const Comments = () => {
   return (
     <div>
       <>
-      {console.log(id)}
-      <CreateComment postId={id ? +id : undefined} />
-      {content}
+        <CreateComment
+          postId={id ? +id : undefined}
+          updateComments={updateComments}
+        />
+        {content}
       </>
     </div>
   );

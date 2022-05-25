@@ -4,7 +4,7 @@ import { CommentModel } from '../../lib/types/comment';
 
 interface IProps {
   postId: number | undefined;
-  
+  updateComments: (comment: CommentModel) => void;
 }
 
 const CreateComment: React.FC<IProps> = (props: IProps) => {
@@ -12,7 +12,9 @@ const CreateComment: React.FC<IProps> = (props: IProps) => {
 
   const onComment = () => {
     const request = new CommentModel(description, 'test', 1, props.postId);
-    commentService.add(request);
+    commentService.add(request).then(newComment => {
+      props.updateComments(newComment);
+    })
   };
 
   return (

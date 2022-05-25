@@ -3,15 +3,11 @@ import { GetStaticProps } from 'next';
 import React from 'react';
 import postService from '../../lib/api/postService';
 import Comments from '../../components/comment/comments';
-import CreateComment from '../../components/comment/createComment';
 
 const PostInfo = ({ post }: { post: PostModel }) => {
-
   return (
     <div>
-      <>
       <Comments></Comments>
-      </>
     </div>
   );
 };
@@ -31,7 +27,9 @@ export async function getStaticPaths() {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { params } = context;
-  const data: PostModel = await postService.getOne(params.id);
+  const data: PostModel = await postService.getOne(
+    params.id ? +params.id : undefined
+  );
   if (!data) {
     return {
       notFound: true,

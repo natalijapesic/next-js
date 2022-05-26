@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Comment from '../../components/comment/comment';
 import { CommentModel } from '../../lib/types/comment';
 import CreateComment from './createComment';
+import Spinner from '../../../../libs/components/Spinner';
 
 const Comments = () => {
   const router = useRouter();
@@ -27,17 +28,15 @@ const Comments = () => {
   } else if (error) {
     content = <div>{error}</div>;
   } else {
-    content = <div>Loading..</div>;
+    content = <Spinner type="gray" />;
   }
   return (
-    <div>
-      <>
-        <CreateComment
-          postId={id ? +id : undefined}
-          updateComments={updateComments}
-        />
-        {content}
-      </>
+    <div className="flex-col items-center justify-center">
+      <CreateComment
+        postId={id ? +id : undefined}
+        updateComments={updateComments}
+      />
+      {content}
     </div>
   );
 };

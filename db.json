@@ -156,36 +156,6 @@
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "postId": 15,
       "date": "Fri, 20 May 2022 06:14:09 GMT"
-    },
-    {
-      "id": 3,
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "postId": 14,
-      "date": "Fri, 20 May 2022 06:14:09 GMT"
-    },
-    {
-      "id": 4,
-      "description": "novi komentar",
-      "authorName": "test",
-      "authorId": 1,
-      "postId": 14,
-      "date": "Wed, 25 May 2022 14:01:44 GMT"
-    },
-    {
-      "id": 5,
-      "description": "radi?",
-      "authorName": "test",
-      "authorId": 1,
-      "postId": 14,
-      "date": "Thu, 26 May 2022 09:15:40 GMT"
-    },
-    {
-      "id": 6,
-      "description": "radi",
-      "authorName": "test",
-      "authorId": 1,
-      "postId": 14,
-      "date": "Thu, 26 May 2022 09:15:44 GMT"
     }
   ],
   "users": [
@@ -208,34 +178,6 @@
       "password": "$2a$10$piX8/BhK1ak0bSlVo6Z1Vu.zGmojvRqnq7yUNuGv5UIJo/T.1pGcq",
       "id": 3,
       "username": "username",
-      "isAdmin": false
-    },
-    {
-      "email": "natalija@gmail.com",
-      "password": "$2a$10$uXBR.we2kmppuVBYR/cL7OVqcQVK6jkiMxAdc2s4hpsnWteZAGKfS",
-      "id": 4,
-      "username": "natalija",
-      "isAdmin": false
-    },
-    {
-      "email": "test1@gmail.com",
-      "password": "$2a$10$GFjjlowYmeJciMFyyJpevub/amqrw1DXa91LphxrKmHO8uWgBkQiK",
-      "id": 5,
-      "username": "test1",
-      "isAdmin": false
-    },
-    {
-      "email": "novi@gmail.com",
-      "password": "$2a$10$uoa7TyG4VWFchiNyuABykeWIygfbXBCa6gPnXfDje5IOfTv9UM70a",
-      "id": 6,
-      "username": "novi",
-      "isAdmin": false
-    },
-    {
-      "email": "test123@gmail.com",
-      "password": "$2a$10$T2ztzt1mP1kvEqGeQUILye9Efczugdn4/dqU4Rt4Y7CR4.lYh4ley",
-      "id": 7,
-      "username": "test123",
       "isAdmin": false
     }
   ]

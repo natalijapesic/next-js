@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Button from '../../../../libs/components/Button';
 import { ButtonStyle } from '../../../../libs/components/types';
 import usePosts from '../../lib/hooks/usePosts';
+import Spinner from '../../../../libs/components/Spinner';
 
 const optionsArray = [5, 10, 15];
 const options = optionsArray.map((opt, index) => (
@@ -43,7 +44,7 @@ const Posts = () => {
   } else if (error) {
     content = <div>{error}</div>;
   } else {
-    content = <div>Loading..</div>;
+    content = <Spinner type="gray" />;
   }
 
   return (

@@ -36,11 +36,6 @@ const Header = () => {
             disabled={false}
             message=">"
           />
-          <Link href="/about">
-            <a className="mx-1.25 py-0.5 px-1 hover:text-cyan-500 hover:text-opacity-100">
-              About
-            </a>
-          </Link>
         </div>
 
         <div className="flex justify-between text-white ">
@@ -51,7 +46,7 @@ const Header = () => {
                   Create Post
                 </a>
               </Link>
-              <Link href="/">
+              <Link href="/posts">
                 <a
                   className="mx-1.25 py-0.5 px-1 hover:text-cyan-500 hover:text-opacity-100"
                   onClick={onSignOut}
@@ -83,5 +78,3 @@ const Header = () => {
 
 export default Header;
 
-// https://frontend-digest.com/useswr-my-new-favorite-react-library-cd87a914a5b1
-// https://github.com/reck1ess/next-realworld-example-app/blob/master/lib/api/tag.ts

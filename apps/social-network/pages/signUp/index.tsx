@@ -22,7 +22,7 @@ const SignUp: React.FC = () => {
   }, [password, username, email]);
 
   useEffect(() => {
-    if (signUpStatus === 'succeeded') router.push('/');
+    if (signUpStatus === 'succeeded') router.push('/posts');
   }, [dispatch, signUpStatus]);
 
   const validate = () => {

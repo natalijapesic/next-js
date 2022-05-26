@@ -230,6 +230,13 @@
       "id": 6,
       "username": "novi",
       "isAdmin": false
+    },
+    {
+      "email": "test123@gmail.com",
+      "password": "$2a$10$T2ztzt1mP1kvEqGeQUILye9Efczugdn4/dqU4Rt4Y7CR4.lYh4ley",
+      "id": 7,
+      "username": "test123",
+      "isAdmin": false
     }
   ]
 }

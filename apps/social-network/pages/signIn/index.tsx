@@ -21,7 +21,7 @@ const SignIn: React.FC = () => {
   }, [email, password]);
 
   useEffect(() => {
-    if (signInStatus === 'succeeded') router.push('/');
+    if (signInStatus === 'succeeded') router.push('/posts');
   }, [dispatch, signInStatus, router]);
 
   const validate = () => {

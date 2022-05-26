@@ -1,20 +1,26 @@
-import {
-  ButtonStyle,
-  InputStyle,
-} from '../../../libs/components/types/index';
+import { ButtonStyle, InputStyle } from '../../../libs/components/types/index';
 import Button from '../../../libs/components/Button';
 import Input from '../../../libs/components/Input';
 import Link from 'next/link';
 import { useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../lib/stores/hooks';
+import { getAuthUser, signOut } from '../features/auth/authenticationSlice';
 
 const Header = () => {
   const [authorName, setAuthorName] = useState('');
 
+  const dispatch = useAppDispatch();
+  const user = useAppSelector(getAuthUser);
+
+  const onSignOut = () => {
+    dispatch(signOut());
+  };
+
   return (
     <div>
       <header className="flex justify-between bg-gray-800">
+        <Link href="/">Home</Link>
         <div className="flex">
-          <Link href="/">Home</Link>
           <Input
             placeholder="Username"
             type="text"
@@ -35,6 +41,40 @@ const Header = () => {
               About
             </a>
           </Link>
+        </div>
+
+        <div className="flex justify-between text-white ">
+          {user && (
+            <>
+              <Link href="/createPost">
+                <a className="mx-1.25 py-0.5 px-1 hover:text-cyan-500 hover:text-opacity-100">
+                  Create Post
+                </a>
+              </Link>
+              <Link href="/">
+                <a
+                  className="mx-1.25 py-0.5 px-1 hover:text-cyan-500 hover:text-opacity-100"
+                  onClick={onSignOut}
+                >
+                  Sign Out
+                </a>
+              </Link>
+            </>
+          )}
+          {!user && (
+            <>
+              <Link href="/signIn">
+                <a className="mx-1.25 py-0.5 px-1 hover:text-cyan-500 hover:text-opacity-100">
+                  Sign In
+                </a>
+              </Link>
+              <Link href="/signUp">
+                <a className="mx-1.25 py-0.5 px-1 hover:text-cyan-500 hover:text-opacity-100">
+                  Sign Up
+                </a>
+              </Link>
+            </>
+          )}
         </div>
       </header>
     </div>

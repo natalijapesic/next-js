@@ -4,25 +4,26 @@ import Spinner from '../../../../libs/components/Spinner';
 import { ButtonStyle, InputStyle } from '../../../../libs/components/types';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { getAuthStatus, signIn } from '../../features/auth/authenticationSlice';
+import { getAuthStatus, signUp } from '../../features/auth/authenticationSlice';
 import { useAppDispatch, useAppSelector } from '../../lib/stores/hooks';
 
-const SignIn: React.FC = () => {
+const SignUp: React.FC = () => {
   const dispatch = useAppDispatch();
-  const signInStatus = useAppSelector(getAuthStatus);
+  const router = useRouter();
+  const signUpStatus = useAppSelector(getAuthStatus);
 
+  const [username, setUsername] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [isDisabled, setIsDisabled] = useState(true);
-  const router = useRouter();
 
   useEffect(() => {
     validate();
-  }, [email, password]);
+  }, [password, username, email]);
 
   useEffect(() => {
-    if (signInStatus === 'succeeded') router.push('/');
-  }, [dispatch, signInStatus, router]);
+    if (signUpStatus === 'succeeded') router.push('/');
+  }, [dispatch, signUpStatus]);
 
   const validate = () => {
     if (password.length < 4) {
@@ -31,7 +32,7 @@ const SignIn: React.FC = () => {
     } else {
       setIsDisabled(false);
     }
-    if (email.length === 0) {
+    if (email.length === 0 || username.length === 0) {
       setIsDisabled(true);
       return;
     }
@@ -44,33 +45,41 @@ const SignIn: React.FC = () => {
     }
   };
 
-  let content;
-
-  if (signInStatus === 'failed') {
-    content = (
-      <p className="border border-red-300">
-        You have entered your password or email incorrenctly..
-        <br /> Please check your input and try again.
-      </p>
-    );
-  } else if (signInStatus === 'loading') content = <Spinner type="gray" />;
-
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (signInStatus === 'idle' || signInStatus === 'failed') {
+    if (signUpStatus === 'idle' || signUpStatus === 'failed') {
       const request = {
+        username,
         email,
         password,
       };
 
-      dispatch(signIn(request));
+      dispatch(signUp(request));
     }
   };
+
+  let content;
+  if (signUpStatus === 'failed') {
+    console.log(signUpStatus);
+    content = (
+      <p className="border border-red-300">
+        User already exist.
+        <br /> Please check your input and try again.
+      </p>
+    );
+  } else if (signUpStatus === 'loading') content = <Spinner type="gray" />;
 
   return (
     <div className="flex justify-center text-center pt-20">
       <form onSubmit={onSubmit}>
+        <Input
+          inputStyle={InputStyle.rounded}
+          value={username}
+          type="text"
+          placeholder="Username"
+          onChange={setUsername}
+        ></Input>
         <Input
           inputStyle={InputStyle.rounded}
           value={email}
@@ -91,14 +100,14 @@ const SignIn: React.FC = () => {
             <Button
               type="submit"
               buttonStyle={ButtonStyle.disable}
-              message="SignIn"
+              message="SignUp"
               disabled={isDisabled}
             />
           ) : (
             <Button
               type="submit"
               buttonStyle={ButtonStyle.light}
-              message="SignIn"
+              message="SignUp"
               disabled={isDisabled}
             />
           )}
@@ -108,4 +117,4 @@ const SignIn: React.FC = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;

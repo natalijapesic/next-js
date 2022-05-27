@@ -1,4 +1,4 @@
-import axios from '../../../../libs/axiosSetUp';
+import axios from '@libs/axiosSetUp';
 import { CommentModel } from '../types/comment';
 
 class CommentService {

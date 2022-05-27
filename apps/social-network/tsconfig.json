@@ -11,7 +11,15 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "incremental": true,
-    "types": ["jest", "node"]
+    "types": ["jest", "node"],
+    "baseUrl": ".",
+    "paths": {
+      "@components/*":["./components/*"],
+      "@lib/*":["./lib/*"],
+      "@features/*":["./features/*"],
+      "@libs/*":["../../libs/*"],
+      "@pages/*":["./pages/*"],
+  },
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "next-env.d.ts", "pages/signIn"],
   "exclude": ["node_modules", "jest.config.ts"]

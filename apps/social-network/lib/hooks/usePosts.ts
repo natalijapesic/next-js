@@ -1,6 +1,6 @@
+import postService from '@lib/api/postService';
+import { PostModel } from '@lib/types/post/post';
 import useSWR from 'swr';
-import postService from '../api/postService';
-import { PostModel } from '../types/post/post';
 
 const usePosts = (page: number, limit: number, authorName?: string) => {
   let queryParams = `?_page=${page}&_limit=${limit}`;

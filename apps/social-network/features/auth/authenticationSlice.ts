@@ -1,9 +1,9 @@
+import storeService from '@lib/api/storeService';
+import { RootState } from '@lib/stores/store';
+import { UserModel } from '@lib/types/user';
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../../lib/stores/store';
-import { UserModel } from '../../lib/types/user';
 import authService from './api/authService';
 import { AuthState, SignInRequest, SignUpRequest, UserResponse } from './types';
-import storeService from '../../lib/api/storeService';
 
 const initialState: AuthState = {
   user: null,

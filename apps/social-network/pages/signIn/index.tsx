@@ -1,7 +1,7 @@
-import Input from '../../../../libs/components/Input';
-import Button from '../../../../libs/components/Button';
-import Spinner from '../../../../libs/components/Spinner';
-import { ButtonStyle, InputStyle } from '../../../../libs/components/types';
+import Button from '@libs/components/Button';
+import Input from '@libs/components/Input';
+import Spinner from '@libs/components/Spinner';
+import { ButtonStyle, InputStyle } from '@libs/components/types';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { getAuthStatus, signIn } from '../../features/auth/authenticationSlice';

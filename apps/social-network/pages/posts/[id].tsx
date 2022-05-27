@@ -1,14 +1,14 @@
-import { PostModel } from '../../lib/types/post/post';
 import { GetStaticProps } from 'next';
 import React from 'react';
-import postService from '../../lib/api/postService';
 import Image from 'next/image';
-import Comments from '../../components/comment/comments';
+import Comments from '@components/comment/comments';
+import { PostModel } from '@lib/types/post/post';
+import postService from '@lib/api/postService';
 
 const PostInfo = ({ post }: { post: PostModel }) => {
   return (
-    <div className="flex-col items-center">
-      <h1 className='flex'>{post.title}</h1>
+    <div className="flex flex-col items-center">
+      <h1 >{post.title}</h1>
       <Image src={post.image} alt="Post image" width={300} height={300} />
       <Comments></Comments>
     </div>

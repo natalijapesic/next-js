@@ -1,10 +1,10 @@
-import useComments from '../../lib/hooks/useComments';
+import useComments from '@lib/hooks/useComments';
+import { CommentModel } from '@lib/types/comment';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import Comment from '../../components/comment/comment';
-import { CommentModel } from '../../lib/types/comment';
 import CreateComment from './createComment';
-import Spinner from '../../../../libs/components/Spinner';
+import Comment from './comment';
+import Spinner from '@libs/components/Spinner';
 
 const Comments = () => {
   const router = useRouter();

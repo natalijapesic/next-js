@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
 import Layout from '.';
-import '../../../libs/style/main.css';
+import '@libs/style/main.css';
 import { store } from '../lib/stores/store';
 
 function CustomApp({ Component, pageProps }: AppProps) {

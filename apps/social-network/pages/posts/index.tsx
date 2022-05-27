@@ -1,9 +1,9 @@
-import Post from '../../components/post';
 import { useState } from 'react';
-import Button from '../../../../libs/components/Button';
-import { ButtonStyle } from '../../../../libs/components/types';
-import usePosts from '../../lib/hooks/usePosts';
-import Spinner from '../../../../libs/components/Spinner';
+import Button from '@libs/components/Button';
+import Spinner from '@libs/components/Spinner';
+import usePosts from '@lib/hooks/usePosts';
+import Post from '@components/post';
+import { ButtonStyle } from '@libs/components/types';
 
 const optionsArray = [5, 10, 15];
 const options = optionsArray.map((opt, index) => (

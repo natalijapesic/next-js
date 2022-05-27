@@ -1,5 +1,5 @@
-import { UserModel } from '../../../lib/types/user';
-import axios from '../../../../../libs/axiosSetUp';
+import { UserModel } from '@lib/types/user';
+import axios from '@libs/axiosSetUp';
 import { SignInRequest, SignUpRequest, UserResponse } from '../types';
 
 class AuthService {

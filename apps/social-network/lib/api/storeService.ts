@@ -1,4 +1,4 @@
-import { UserModel } from '../types/user';
+import { UserModel } from "@lib/types/user";
 
 class StoreService {
   setAccessToken(token: string) {

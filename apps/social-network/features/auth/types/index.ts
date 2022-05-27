@@ -1,4 +1,4 @@
-import { UserModel } from '../../../lib/types/user';
+import { UserModel } from "@lib/types/user";
 
 export type AuthState = {
   user: UserModel | null;

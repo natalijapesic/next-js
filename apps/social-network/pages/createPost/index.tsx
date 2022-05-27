@@ -1,14 +1,11 @@
-import { PostModel } from '../../lib/types/post/post';
 import { useState } from 'react';
-import Input from '../../../../libs/components/Input';
-import Textarea from '../../../../libs/components/Textarea';
-import Button from '../../../../libs/components/Button';
-import {
-  ButtonStyle,
-  InputStyle,
-} from '../../../../libs/components/types/index';
-import postService from '../../lib/api/postService';
+import { ButtonStyle, InputStyle } from '@libs/components/types/index';
+import postService from '@lib/api/postService';
 import { useRouter } from 'next/router';
+import { PostModel } from '@lib/types/post/post';
+import Input from '@libs/components/Input';
+import Button from '@libs/components/Button';
+import Textarea from '@libs/components/Textarea';
 
 const CreatePost = () => {
   const [title, setTitle] = useState('');
@@ -19,7 +16,7 @@ const CreatePost = () => {
   const onSave = () => {
     const request = new PostModel(title, 'test', image, description, 1);
     postService.add(request).then((result) => {
-      if (result) router.push('/');
+      if (result) router.push('/posts');
     });
   };
 

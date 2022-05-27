@@ -1,6 +1,6 @@
+import commentService from '@lib/api/commentService';
+import { CommentModel } from '@lib/types/comment';
 import useSWR from 'swr';
-import commentService from '../api/commentService';
-import { CommentModel } from '../types/comment';
 
 const useComments = (postId) => {
   const queryParams = `?postId=${postId}`;

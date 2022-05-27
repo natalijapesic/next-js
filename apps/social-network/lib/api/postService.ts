@@ -1,4 +1,4 @@
-import axios from '../../../../libs/axiosSetUp';
+import axios from '@libs/axiosSetUp';
 import { PostModel } from '../types/post/post';
 
 class PostService {

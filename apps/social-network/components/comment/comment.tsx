@@ -6,7 +6,7 @@ interface CommentProps {
 
 const Comment: React.FC<CommentProps> = (comment: CommentProps) => {
   return (
-    <article className="flex-column border-l-4 m-6">
+    <article className="flex flex-col border-l-4 m-6">
       <span>{comment.date}</span>
       <div>
         <p>

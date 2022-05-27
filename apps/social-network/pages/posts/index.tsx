@@ -59,34 +59,36 @@ const Posts = () => {
   }
 
   return (
-    <div className="flex-col content-center">
-      <div className="flex justify-center">
-        <div className="flex m-auto">
-          <Input
-            placeholder="Username"
-            type="text"
-            onChange={setAuthorName}
-            inputStyle={InputStyle.bottom}
-            value={authorName}
-          />
-          <button className="ml-2" onClick={onSearch}>
-            <CgSearch />
-          </button>
+    <div className="grid place-items-center  gap-x-10 gap-y-6 grid-cols-1">
+      <div className="flex flex-col justify-between">
+        <h1> Recent </h1>
+        <div className="flex">
+          <div className="flex justify-between">
+            <Input
+              placeholder="Username"
+              type="text"
+              onChange={setAuthorName}
+              inputStyle={InputStyle.bottom}
+              value={authorName}
+            />
+            <button className="ml-2" onClick={onSearch}>
+              <CgSearch />
+            </button>
+          </div>
+          <select
+            className="flex bg-gray-800 px-5 ml-2 focus:cyan-500"
+            name="pageLimit"
+            id="pageLimit"
+            onChange={(e) => setLimit(parseInt(e.target.value))}
+          >
+            {options}
+          </select>
         </div>
-        <label className="mt-2" htmlFor="pageLimit">
-          Choose a page limit:
-        </label>
-        <select
-          className="flex bg-gray-800 px-5 ml-2 focus:cyan-500"
-          name="pageLimit"
-          id="pageLimit"
-          onChange={(e) => setLimit(parseInt(e.target.value))}
-        >
-          {options}
-        </select>
       </div>
 
-      <div className="flex flex-wrap justify-around">{content}</div>
+      <div className="grid place-items-center gap-x-10 gap-y-6 grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 desktop:grid-cols-3">
+        {content}
+      </div>
       <div className="flex justify-around">
         <Button
           onClick={prevPage}

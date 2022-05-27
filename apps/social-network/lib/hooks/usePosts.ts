@@ -4,7 +4,7 @@ import useSWR from 'swr';
 
 const usePosts = (page: number, limit: number, authorName?: string) => {
   let queryParams = `?_page=${page}&_limit=${limit}`;
-  if (authorName) {
+  if (authorName != '') {
     queryParams = `${queryParams}&authorName=${authorName}`;
   }
   const { data, error } = useSWR<PostModel[], string>(

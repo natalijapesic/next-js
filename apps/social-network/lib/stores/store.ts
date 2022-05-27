@@ -18,21 +18,3 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   unknown,
   Action<string>
 >;
-
-// https://www.youtube.com/watch?v=bpbLq6NxIm8
-
-// import { configureStore } from '@reduxjs/toolkit';
-// import storeUser from './middleware';
-// import { createWrapper } from 'next-redux-wrapper';
-// import authReducer from '../../features/auth/authenticationSlice';
-
-// export const makeStore = () =>
-//   configureStore({
-//     reducer: {
-//       auth: authReducer,
-//     },
-//     middleware: (getDefaultMiddleware) =>
-//       getDefaultMiddleware().concat(storeUser),
-//   });
-
-// export const store = createWrapper(makeStore);

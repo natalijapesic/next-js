@@ -22,7 +22,8 @@ const Posts = () => {
   const [disablePrev, setDisablePrev] = useState(false);
   const router = useRouter();
   const [search, setSearch] = useState('');
-  const { posts, error } = usePosts(page, limit);
+  const [authorName, setAuthorName] = useState('');
+  const { posts, error } = usePosts(page, limit, search);
 
   const nextPage = () => {
     if (posts.length === 0) setDisableNext(true);
@@ -33,7 +34,8 @@ const Posts = () => {
   };
 
   const onSearch = () => {
-    router.push(`./posts?authorName=${search}`);
+    router.push(`./posts?authorName=${authorName}`);
+    setSearch(authorName);
   };
 
   const prevPage = () => {
@@ -59,18 +61,18 @@ const Posts = () => {
   return (
     <div className="flex-col content-center">
       <div className="flex justify-center">
-      <div className="flex m-auto">
-        <Input
-          placeholder="Username"
-          type="text"
-          onChange={setSearch}
-          inputStyle={InputStyle.bottom}
-          value={search}
-        />
-        <button className="ml-2" onClick={onSearch}>
-          <CgSearch />
-        </button>
-      </div>
+        <div className="flex m-auto">
+          <Input
+            placeholder="Username"
+            type="text"
+            onChange={setAuthorName}
+            inputStyle={InputStyle.bottom}
+            value={authorName}
+          />
+          <button className="ml-2" onClick={onSearch}>
+            <CgSearch />
+          </button>
+        </div>
         <label className="mt-2" htmlFor="pageLimit">
           Choose a page limit:
         </label>

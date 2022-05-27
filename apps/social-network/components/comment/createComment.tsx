@@ -1,8 +1,8 @@
-import commentService from '../../lib/api/commentService';
+import commentService from '@lib/api/commentService';
 import { useState } from 'react';
-import { CommentModel } from '../../lib/types/comment';
-import Button from '../../../../libs/components/Button';
-import { ButtonStyle } from '../../../../libs/components/types';
+import { CommentModel } from '@lib/types/comment';
+import Button from '@libs/components/Button';
+import { ButtonStyle } from '@libs/components/types';
 
 interface IProps {
   postId: number | undefined;

@@ -8,9 +8,10 @@ import postService from '@lib/api/postService';
 const PostInfo = ({ post }: { post: PostModel }) => {
   return (
     <div className="flex flex-col items-center">
-      <h1 >{post.title}</h1>
+      <h1>{post.title}</h1>
       <Image src={post.image} alt="Post image" width={300} height={300} />
       <Comments></Comments>
+      <p className='line-clamp-4'> {post.description} </p>
     </div>
   );
 };

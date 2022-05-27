@@ -1,14 +1,9 @@
 import { getAuthUser, signOut } from '@features/auth/authenticationSlice';
 import { useAppDispatch, useAppSelector } from '@lib/stores/hooks';
-import Button from '@libs/components/Button';
-import Input from '@libs/components/Input';
-import { ButtonStyle, InputStyle } from '@libs/components/types';
-import Link from 'next/link';
-import { useState } from 'react';
+import CustomLink from '@libs/components/CustomLink';
+import { LinkStyle } from '@libs/components/types';
 
 const Header = () => {
-  const [authorName, setAuthorName] = useState('');
-
   const dispatch = useAppDispatch();
   const user = useAppSelector(getAuthUser);
 
@@ -17,56 +12,45 @@ const Header = () => {
   };
 
   return (
-    <header className="flex justify-between bg-gray-800">
-      <Link href="/">Home</Link>
-      <div className="flex">
-        <Input
-          placeholder="Username"
-          type="text"
-          onChange={setAuthorName}
-          inputStyle={InputStyle.bottom}
-          value=""
-        />
+    <header className="flex p-4 justify-around bg-gray-800">
+      <CustomLink href="/posts" linkStyle={LinkStyle.bold} message="Home" />
+      <div className='flex'>
+      <CustomLink href="/about" linkStyle={LinkStyle.cyan} message="About" />
 
-        <Button
-          type="button"
-          onClick={console.log}
-          buttonStyle={ButtonStyle.search}
-          disabled={false}
-          message=">"
-        />
       </div>
-
-      <div className="flex justify-between text-white ">
+      <div className="flex items-end text-white ">
         {user && (
           <>
-            <Link href="/createPost">
-              <a className="mx-1.25 py-0.5 px-1 hover:text-cyan-500 hover:text-opacity-100">
-                Create Post
-              </a>
-            </Link>
-            <Link href="/posts">
-              <a
-                className="mx-1.25 py-0.5 px-1 hover:text-cyan-500 hover:text-opacity-100"
-                onClick={onSignOut}
-              >
-                Sign Out
-              </a>
-            </Link>
+            <CustomLink
+              href="/posts"
+              linkStyle={LinkStyle.cyan}
+              message={user.username}
+            ></CustomLink>
+            <CustomLink
+              href="/createPost"
+              linkStyle={LinkStyle.cyan}
+              message="Create Post"
+            ></CustomLink>
+            <CustomLink
+              href="/posts"
+              linkStyle={LinkStyle.cyan}
+              message="Sign Out"
+              onClick={onSignOut}
+            ></CustomLink>
           </>
         )}
         {!user && (
           <>
-            <Link href="/signIn">
-              <a className="mx-1.25 py-0.5 px-1 hover:text-cyan-500 hover:text-opacity-100">
-                Sign In
-              </a>
-            </Link>
-            <Link href="/signUp">
-              <a className="mx-1.25 py-0.5 px-1 hover:text-cyan-500 hover:text-opacity-100">
-                Sign Up
-              </a>
-            </Link>
+            <CustomLink
+              href="/signIn"
+              linkStyle={LinkStyle.cyan}
+              message="Sign In"
+            ></CustomLink>
+            <CustomLink
+              href="/signUp"
+              linkStyle={LinkStyle.cyan}
+              message="Sign Up"
+            ></CustomLink>
           </>
         )}
       </div>

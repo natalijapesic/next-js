@@ -11,7 +11,7 @@ const Comment: React.FC<CommentProps> = (comment: CommentProps) => {
       <div>
         <p>
           <span>{comment.authorName}:</span>
-          {comment.description.substring(0, 100)}
+          {comment.description}
         </p>
       </div>
     </article>

@@ -12,3 +12,8 @@ export enum InputStyle {
   rounded = 'rounded',
   bottom = 'bottom',
 }
+
+export enum LinkStyle {
+  cyan = 'cyan',
+  bold = 'bold',
+}

@@ -3,7 +3,10 @@ import Button from '@libs/components/Button';
 import Spinner from '@libs/components/Spinner';
 import usePosts from '@lib/hooks/usePosts';
 import Post from '@components/post';
-import { ButtonStyle } from '@libs/components/types';
+import { ButtonStyle, InputStyle } from '@libs/components/types';
+import { useRouter } from 'next/router';
+import Input from '@libs/components/Input';
+import { CgSearch } from 'react-icons/cg';
 
 const optionsArray = [5, 10, 15];
 const options = optionsArray.map((opt, index) => (
@@ -17,14 +20,20 @@ const Posts = () => {
   const [limit, setLimit] = useState(5);
   const [disableNext, setDisableNext] = useState(false);
   const [disablePrev, setDisablePrev] = useState(false);
-
+  const router = useRouter();
+  const [search, setSearch] = useState('');
   const { posts, error } = usePosts(page, limit);
+
   const nextPage = () => {
     if (posts.length === 0) setDisableNext(true);
     else {
       setDisablePrev(false);
       setPage(page + 1);
     }
+  };
+
+  const onSearch = () => {
+    router.push(`./posts?authorName=${search}`);
   };
 
   const prevPage = () => {
@@ -50,6 +59,18 @@ const Posts = () => {
   return (
     <div className="flex-col content-center">
       <div className="flex justify-center">
+      <div className="flex m-auto">
+        <Input
+          placeholder="Username"
+          type="text"
+          onChange={setSearch}
+          inputStyle={InputStyle.bottom}
+          value={search}
+        />
+        <button className="ml-2" onClick={onSearch}>
+          <CgSearch />
+        </button>
+      </div>
         <label className="mt-2" htmlFor="pageLimit">
           Choose a page limit:
         </label>

@@ -5,8 +5,8 @@ import { ButtonStyle, InputStyle } from '@libs/components/types';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { getAuthStatus, signIn } from '../../features/auth/authenticationSlice';
-import { useAppDispatch, useAppSelector } from '../../lib/stores/hooks';
+import { getAuthStatus, signIn } from '@features/auth/authenticationSlice';
+import { useAppDispatch, useAppSelector } from '@lib/stores/hooks';
 
 const SignIn: NextPage = () => {
   const dispatch = useAppDispatch();
@@ -18,32 +18,32 @@ const SignIn: NextPage = () => {
   const router = useRouter();
 
   useEffect(() => {
+    const validate = () => {
+      if (password.length < 4) {
+        setIsDisabled(true);
+        return;
+      } else {
+        setIsDisabled(false);
+      }
+      if (email.length === 0) {
+        setIsDisabled(true);
+        return;
+      }
+      if (
+        email.indexOf('@') === -1 ||
+        (email.indexOf('.com') === -1 && email.indexOf('.rs') === -1)
+      ) {
+        setIsDisabled(true);
+        return;
+      }
+    };
+
     validate();
   }, [email, password]);
 
   useEffect(() => {
     if (signInStatus === 'succeeded') router.push('/posts');
   }, [dispatch, signInStatus, router]);
-
-  const validate = () => {
-    if (password.length < 4) {
-      setIsDisabled(true);
-      return;
-    } else {
-      setIsDisabled(false);
-    }
-    if (email.length === 0) {
-      setIsDisabled(true);
-      return;
-    }
-    if (
-      email.indexOf('@') === -1 ||
-      (email.indexOf('.com') === -1 && email.indexOf('.rs') === -1)
-    ) {
-      setIsDisabled(true);
-      return;
-    }
-  };
 
   let content;
 

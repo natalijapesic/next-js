@@ -19,32 +19,35 @@ const SignUp: NextPage = () => {
   const [isDisabled, setIsDisabled] = useState(true);
 
   useEffect(() => {
+
+    const validate = () => {
+      if (password.length < 4) {
+        setIsDisabled(true);
+        return;
+      } else {
+        setIsDisabled(false);
+      }
+      if (email.length === 0 || username.length === 0) {
+        setIsDisabled(true);
+        return;
+      }
+      if (
+        email.indexOf('@') === -1 ||
+        (email.indexOf('.com') === -1 && email.indexOf('.rs') === -1)
+      ) {
+        setIsDisabled(true);
+        return;
+      }
+    };
+
     validate();
   }, [password, username, email]);
 
   useEffect(() => {
     if (signUpStatus === 'succeeded') router.push('/posts');
-  }, [dispatch, signUpStatus]);
+  }, [dispatch, signUpStatus, router]);
 
-  const validate = () => {
-    if (password.length < 4) {
-      setIsDisabled(true);
-      return;
-    } else {
-      setIsDisabled(false);
-    }
-    if (email.length === 0 || username.length === 0) {
-      setIsDisabled(true);
-      return;
-    }
-    if (
-      email.indexOf('@') === -1 ||
-      (email.indexOf('.com') === -1 && email.indexOf('.rs') === -1)
-    ) {
-      setIsDisabled(true);
-      return;
-    }
-  };
+
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

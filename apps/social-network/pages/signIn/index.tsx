@@ -2,12 +2,13 @@ import Button from '@libs/components/Button';
 import Input from '@libs/components/Input';
 import Spinner from '@libs/components/Spinner';
 import { ButtonStyle, InputStyle } from '@libs/components/types';
+import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { getAuthStatus, signIn } from '../../features/auth/authenticationSlice';
 import { useAppDispatch, useAppSelector } from '../../lib/stores/hooks';
 
-const SignIn: React.FC = () => {
+const SignIn: NextPage = () => {
   const dispatch = useAppDispatch();
   const signInStatus = useAppSelector(getAuthStatus);
 

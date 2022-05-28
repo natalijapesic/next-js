@@ -4,8 +4,9 @@ import { refreshUserStore } from '@features/auth/authenticationSlice';
 import storeService from '@lib/api/storeService';
 import { useAppDispatch } from '@lib/stores/hooks';
 import { UserModel } from '@lib/types/user';
+import { NextPage } from 'next';
 
-const Layout = () => {
+const Layout: NextPage = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {

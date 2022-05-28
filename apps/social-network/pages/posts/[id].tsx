@@ -1,11 +1,11 @@
-import { GetStaticProps } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import Image from 'next/image';
 import Comments from '@components/comment/comments';
 import { PostModel } from '@lib/types/post/post';
 import postService from '@lib/api/postService';
 
-const PostInfo = ({ post }: { post: PostModel }) => {
+const PostInfo: NextPage = ({ post }: { post: PostModel }) => {
   return (
     <div className="flex flex-col items-center">
       <h1>{post.title}</h1>

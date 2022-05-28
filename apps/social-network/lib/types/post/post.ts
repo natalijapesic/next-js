@@ -1,3 +1,5 @@
+import { format } from 'date-fns'
+
 export class PostModel {
   id: number;
   title: string;
@@ -21,7 +23,7 @@ export class PostModel {
     this.image = image;
     this.authorName = authorName;
     this.description = description;
-    this.date = new Date().toUTCString();
+    this.date = format(new Date(), 'yyyy-MM-dd')
     this.likes = 0;
     this.usersLikes = [];
     this.userId = userId;

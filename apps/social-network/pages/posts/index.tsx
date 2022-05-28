@@ -7,6 +7,7 @@ import { ButtonStyle, InputStyle } from '@libs/components/types';
 import { useRouter } from 'next/router';
 import Input from '@libs/components/Input';
 import { CgSearch } from 'react-icons/cg';
+import { NextPage } from 'next';
 
 const optionsArray = [5, 10, 15];
 const options = optionsArray.map((opt, index) => (
@@ -15,7 +16,7 @@ const options = optionsArray.map((opt, index) => (
   </option>
 ));
 
-const Posts = () => {
+const Posts: NextPage = () => {
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(5);
   const [disableNext, setDisableNext] = useState(false);
@@ -59,34 +60,36 @@ const Posts = () => {
   }
 
   return (
-    <div className="grid place-items-center  gap-x-10 gap-y-6 grid-cols-1">
-      <div className="flex flex-col justify-between">
-        <h1> Recent </h1>
-        <div className="flex">
-          <div className="flex justify-between">
-            <Input
-              placeholder="Username"
-              type="text"
-              onChange={setAuthorName}
-              inputStyle={InputStyle.bottom}
-              value={authorName}
-            />
-            <button className="ml-2" onClick={onSearch}>
-              <CgSearch />
-            </button>
-          </div>
-          <select
-            className="flex bg-gray-800 px-5 ml-2 focus:cyan-500"
-            name="pageLimit"
-            id="pageLimit"
-            onChange={(e) => setLimit(parseInt(e.target.value))}
-          >
-            {options}
-          </select>
+    <div className="grid place-items-center gap-x-10 gap-y-6 grid-cols-1">
+      <h1 className="font-bold text-3xl ml-20 mt-5 place-self-start">
+        {' '}
+        Recent:{' '}
+      </h1>
+      <div className="flex">
+        <div className="flex flex-none">
+          <Input
+            placeholder="Username"
+            type="text"
+            onChange={setAuthorName}
+            inputStyle={InputStyle.bottom}
+            value={authorName}
+          />
+          <button className="ml-2" onClick={onSearch}>
+            <CgSearch />
+          </button>
         </div>
+        <div className="w-40" />
+        <select
+          className="flex-none bg-transparent  ml-2 focus:bg-gray-800"
+          name="pageLimit"
+          id="pageLimit"
+          onChange={(e) => setLimit(parseInt(e.target.value))}
+        >
+          {options}
+        </select>
       </div>
 
-      <div className="grid place-items-center gap-x-10 gap-y-6 grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 desktop:grid-cols-3">
+      <div className="grid gap-x-10 gap-y-6 grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 desktop:grid-cols-3">
         {content}
       </div>
       <div className="flex justify-around">

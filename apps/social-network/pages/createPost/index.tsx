@@ -6,8 +6,9 @@ import { PostModel } from '@lib/types/post/post';
 import Input from '@libs/components/Input';
 import Button from '@libs/components/Button';
 import Textarea from '@libs/components/Textarea';
+import { NextPage } from 'next';
 
-const CreatePost = () => {
+const CreatePost: NextPage = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');

@@ -1,4 +1,3 @@
-
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { getAuthStatus, signUp } from '@features/auth/authenticationSlice';
@@ -7,8 +6,9 @@ import Input from '@libs/components/Input';
 import { ButtonStyle, InputStyle } from '@libs/components/types';
 import Spinner from '@libs/components/Spinner';
 import Button from '@libs/components/Button';
+import { NextPage } from 'next';
 
-const SignUp: React.FC = () => {
+const SignUp: NextPage = () => {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const signUpStatus = useAppSelector(getAuthStatus);

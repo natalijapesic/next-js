@@ -1,13 +1,7 @@
+import { NextPage } from 'next';
 
-/* eslint-disable-next-line */
-export interface AboutProps {}
-
-export function About(props: AboutProps) {
-  return (
-    <div className='text-red-600'>
-      <h1>Welcome to About!</h1>
-    </div>
-  );
-}
+const About: NextPage = () => {
+  return <div>About</div>;
+};
 
 export default About;

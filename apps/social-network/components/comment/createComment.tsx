@@ -3,40 +3,47 @@ import { useState } from 'react';
 import { CommentModel } from '@lib/types/comment';
 import Button from '@libs/components/Button';
 import { ButtonStyle } from '@libs/components/types';
+import { useAppSelector } from '@lib/stores/hooks';
+import { getAuthUser } from '@features/auth/authenticationSlice';
+import Textarea from '@libs/components/Textarea';
 
 interface IProps {
   postId: number | undefined;
   updateComments: (comment: CommentModel) => void;
 }
 
-const CreateComment: React.FC<IProps> = (props: IProps) => {
+const CreateComment = (props: IProps) => {
   const [description, setDescription] = useState('');
+  const user = useAppSelector(getAuthUser);
 
   const onComment = () => {
-    const request = new CommentModel(description, 'test', 1, props.postId);
+    const request = new CommentModel(
+      description,
+      user.username,
+      user.id,
+      props.postId
+    );
     commentService.add(request).then((newComment) => {
       props.updateComments(newComment);
     });
   };
 
   return (
-    <div className="flex-col items-center justify-center">
-        <textarea
-          className="bg-gray-900"
-          id={props.postId.toString()}
-          name="commentContent"
-          value={description}
-          placeholder="Create comment"
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <Button
-          value={props.postId}
-          onClick={onComment}
-          disabled={false}
-          buttonStyle={ButtonStyle.dark}
-          type="button"
-          message={'Comment'}
-        />
+    <div className="grid grid-col-1 place-items-center">
+      <Textarea
+        textareaStyle="basic"
+        value={description}
+        placeholder="Create comment"
+        onChange={setDescription}
+      />
+      <Button
+        value={props.postId}
+        onClick={onComment}
+        disabled={false}
+        buttonStyle={ButtonStyle.dark}
+        type="button"
+        message={'Comment'}
+      />
     </div>
   );
 };

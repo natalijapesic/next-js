@@ -43,20 +43,62 @@
       "likes": 0,
       "usersLikes": [],
       "userId": 1
+    },
+    {
+      "id": 23,
+      "title": "Nulla maximus interdum bibendum.",
+      "image": "https://place-hold.it/300",
+      "authorName": "test",
+      "description": "Nulla maximus interdum bibendum. Etiam eget orci vel ipsum egestas faucibus quis quis dui. Sed ante ex, fermentum sed nisi ut, tempor vulputate nibh. Vivamus dapibus, libero dictum euismod hendrerit, turpis felis malesuada tortor, a interdum enim erat sit amet tortor. Maecenas in ex et metus aliquet dignissim non ac felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis hendrerit, ex consequat faucibus vestibulum, neque lectus pharetra massa, nec elementum justo massa sed leo. In blandit eget odio quis facilisis. Aliquam et quam sem. Sed tempus finibus lorem eget consequat. Nulla mattis, tortor ac aliquam mollis, leo mauris viverra ex, et euismod est tellus ac lacus. Curabitur sit amet leo ex. Fusce ex felis, consectetur et sollicitudin vel, tristique vel lectus.",
+      "date": "2022-05-29",
+      "likes": 0,
+      "usersLikes": [],
+      "userId": 1
+    },
+    {
+      "id": 24,
+      "title": "Vestibulum a enim nunc",
+      "image": "https://place-hold.it/300",
+      "authorName": "test",
+      "description": "Vestibulum a enim nunc. Maecenas nisl tellus, finibus pretium eleifend ac, molestie sed dolor. Donec in felis ac purus consectetur dapibus nec vitae nibh. Nam ac urna sodales nisl porttitor venenatis a tempor magna. Integer ullamcorper tristique libero, non commodo urna consequat tincidunt. Quisque convallis diam vitae ipsum varius dictum. Vivamus ac fringilla tortor. Phasellus tristique nibh odio, vel pellentesque orci ultrices nec. Quisque aliquam felis consequat turpis consequat tempus.",
+      "date": "2022-05-29",
+      "likes": 0,
+      "usersLikes": [],
+      "userId": 1
     }
   ],
   "comments": [
     {
       "id": 1,
-      "description": "Sed ut viverra nunc. Sed bibendum tincidunt dui nec molestie. Maecenas venenatis sem sem, et euismod felis cursus facilisis. Donec ut condimentum tellus, quis commodo tortor. ",
-      "postId": 14,
-      "date": "Fri, 20 May 2022 06:14:09 GMT"
+      "description": " Curabitur turpis dui, tristique et nisl sed..",
+      "authorName": "test",
+      "authorId": 1,
+      "postId": 19,
+      "date": "2022-05-29"
     },
     {
       "id": 2,
-      "description": "Vestibulum tristique, lectus id pellentesque fermentum, justo ex auctor odio, id varius metus leo a lectus. Cras eget dui auctor, hendrerit orci vitae, interdum ligula.",
-      "postId": 15,
-      "date": "Fri, 20 May 2022 06:14:09 GMT"
+      "description": "Fusce scelerisque tempus lorem",
+      "authorName": "test",
+      "authorId": 1,
+      "postId": 21,
+      "date": "2022-05-29"
+    },
+    {
+      "id": 3,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "authorName": "natalija",
+      "authorId": 4,
+      "postId": 20,
+      "date": "2022-05-29"
+    },
+    {
+      "id": 4,
+      "description": "Duis efficitur suscipit lorem, eget iaculis risus. Nunc turpis risus, tristique non lectus in, rhoncus convallis dui",
+      "authorName": "ivana",
+      "authorId": 2,
+      "postId": 20,
+      "date": "2022-05-29"
     }
   ],
   "users": [
@@ -79,6 +121,13 @@
       "password": "$2a$10$piX8/BhK1ak0bSlVo6Z1Vu.zGmojvRqnq7yUNuGv5UIJo/T.1pGcq",
       "id": 3,
       "username": "username",
+      "isAdmin": false
+    },
+    {
+      "email": "natalija@gmail.com",
+      "password": "$2a$10$E.7Ld0aJkBy7tk7/3CkihuM/rr15PRVOD8pbsiaDmP8pGcM1CW7Ti",
+      "id": 4,
+      "username": "natalija",
       "isAdmin": false
     }
   ]

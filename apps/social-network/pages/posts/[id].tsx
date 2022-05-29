@@ -7,11 +7,19 @@ import postService from '@lib/api/postService';
 
 const PostInfo: NextPage = ({ post }: { post: PostModel }) => {
   return (
-    <div className="flex flex-col items-center">
-      <h1>{post.title}</h1>
-      <Image src={post.image} alt="Post image" width={300} height={300} />
+    <div className="grid grid-col-1 place-items-center">
+      <h1 className="font-bold text-4xl w-3/5 my-12 ">
+        {post.title}
+      </h1>
+      <Image
+        className="rounded-lg mb-5"
+        src={post.image}
+        alt="Post image"
+        width={300}
+        height={300}
+      />
       <Comments></Comments>
-      <p className='line-clamp-4'> {post.description} </p>
+      <p className="break-all w-1/2"> {post.description} </p>
     </div>
   );
 };

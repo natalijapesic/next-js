@@ -1,5 +1,5 @@
 module.exports = {
-  darkMode: "class",
+  mode:"jit",
   content: ["./{apps/social-network,libs}/**/*.{js,jsx,ts,tsx}"],
   theme: {
     screens: {

@@ -1,3 +1,5 @@
+import { format } from 'date-fns';
+
 export class CommentModel {
   id: number;
   description: string;
@@ -17,6 +19,6 @@ export class CommentModel {
     this.authorName = authorName;
     this.authorId = authorId;
     this.postId = postId;
-    this.date = new Date().toUTCString();
+    this.date = format(new Date(), 'yyyy-MM-dd');
   }
 }

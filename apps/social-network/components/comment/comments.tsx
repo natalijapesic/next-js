@@ -5,12 +5,15 @@ import React, { useEffect, useState } from 'react';
 import CreateComment from './createComment';
 import Comment from './comment';
 import Spinner from '@libs/components/Spinner';
+import { useAppSelector } from '@lib/stores/hooks';
+import { getAuthUser } from '@features/auth/authenticationSlice';
 
 const Comments = () => {
   const router = useRouter();
   const { id } = router.query;
   const { comments, error } = useComments(id);
   const [sharedComments, setSharedComments] = useState<CommentModel[]>([]);
+  const user = useAppSelector(getAuthUser);
 
   useEffect(() => {
     setSharedComments(comments);
@@ -20,6 +23,7 @@ const Comments = () => {
     const newComments: CommentModel[] = [...sharedComments, comment];
     setSharedComments(newComments);
   };
+
   let content;
   if (sharedComments) {
     content = sharedComments.map((comment, index) => {
@@ -31,11 +35,14 @@ const Comments = () => {
     content = <Spinner type="gray" />;
   }
   return (
-    <div className="flex-col items-center justify-center">
-      <CreateComment
-        postId={id ? +id : undefined}
-        updateComments={updateComments}
-      />
+    <div className="grid grid-col-1 place-items-center mb-10">
+      {user && (
+        <CreateComment
+          postId={id ? +id : undefined}
+          updateComments={updateComments}
+        />
+      )}
+
       {content}
     </div>
   );

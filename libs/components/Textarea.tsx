@@ -6,7 +6,7 @@ type TextareaProps = {
   };
   
   const basicClassName =
-    "focus:text-gray-700 block w-full px-3 py-1.5 border border-solid border-gray-300 rounded transition";
+    "focus:text-gray-400 bg-transparent block w-full px-3 py-1.5 border-b-2 outline-none rounded transition";
   
   const Textarea: React.FC<TextareaProps> = (props: TextareaProps) => {
     return (
@@ -15,6 +15,7 @@ type TextareaProps = {
           className={props.textareaStyle === "basic" ? basicClassName : undefined}
           value={props.value}
           onChange={(e) => props.onChange(e.target.value)}
+          placeholder={props.placeholder}
         />
       </div>
     );

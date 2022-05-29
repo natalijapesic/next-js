@@ -4,13 +4,13 @@ interface CommentProps {
   description: string;
 }
 
-const Comment: React.FC<CommentProps> = (comment: CommentProps) => {
+const Comment = (comment: CommentProps) => {
   return (
-    <article className="flex flex-col border-l-4 m-6">
+    <article className="w-80">
       <span>{comment.date}</span>
       <div>
         <p>
-          <span>{comment.authorName}:</span>
+          <span className="font-bold mx-5 text-white">{comment.authorName.charAt(0).toUpperCase() + comment.authorName.slice(1)}:</span>
           {comment.description}
         </p>
       </div>

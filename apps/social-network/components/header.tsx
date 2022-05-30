@@ -34,7 +34,7 @@ const Header = () => {
                 <button className="mb-2">
                   <FaSortDown />
                 </button>
-                <nav className="border border-4 bg-gray-800 invisible border-gray-600 rounded w-60 absolute right-0 top-full transition-all opacity-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-1">
+                <nav className="border-4 bg-gray-800 invisible border-gray-600 rounded w-60 absolute right-0 top-full transition-all opacity-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-1">
                   <ul className="py-1">
                     <li className="block pl-4 py-2 hover:bg-gray-700">
                       <CustomLink
@@ -43,7 +43,7 @@ const Header = () => {
                         message="Create Post"
                       ></CustomLink>
                     </li>
-                    <li className="flex items-center block px-4 py-2 hover:bg-gray-700">
+                    <li className="flex items-center px-4 py-2 hover:bg-gray-700">
                       <FaSignOutAlt />
                       <CustomLink
                         href="/posts"

@@ -17,10 +17,10 @@ const Post = (post: IProps) => {
       <div className="rounded-lg bg-gray-800">
         <Image
           className="rounded-t-lg"
-          src={post.image}
+          src={`https://picsum.photos/seed/${post.id}/200/300`}
           alt="Post image"
           width={300}
-          height={300}
+          height={200}
         />
         <p className="ml-2 text-xl text-white font-mono">{title}</p>
         <div className="flex justify-between">

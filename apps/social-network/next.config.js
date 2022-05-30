@@ -11,7 +11,7 @@ const nextConfig = {
     svgr: false,
   },
   images: {
-    domains: ['place-hold.it'],
+    domains: ['place-hold.it', 'picsum.photos'],
   },
   async redirects() {
     return [

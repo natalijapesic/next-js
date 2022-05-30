@@ -17,3 +17,8 @@ export enum LinkStyle {
   cyan = 'cyan',
   bold = 'bold',
 }
+
+export enum TextareaStyle {
+  basic = 'basic',
+  transparent = 'transparent',
+}

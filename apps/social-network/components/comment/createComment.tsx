@@ -2,7 +2,7 @@ import commentService from '@lib/api/commentService';
 import { useState } from 'react';
 import { CommentModel } from '@lib/types/comment';
 import Button from '@libs/components/Button';
-import { ButtonStyle } from '@libs/components/types';
+import { ButtonStyle, TextareaStyle } from '@libs/components/types';
 import { useAppSelector } from '@lib/stores/hooks';
 import { getAuthUser } from '@features/auth/authenticationSlice';
 import Textarea from '@libs/components/Textarea';
@@ -31,7 +31,7 @@ const CreateComment = (props: IProps) => {
   return (
     <div className="grid grid-col-1 place-items-center">
       <Textarea
-        textareaStyle="basic"
+        textareaStyle={TextareaStyle.transparent}
         value={description}
         placeholder="Create comment"
         onChange={setDescription}

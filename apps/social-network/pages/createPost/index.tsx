@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ButtonStyle, InputStyle } from '@libs/components/types/index';
+import { ButtonStyle, InputStyle, TextareaStyle } from '@libs/components/types/index';
 import postService from '@lib/api/postService';
 import { useRouter } from 'next/router';
 import { PostModel } from '@lib/types/post/post';
@@ -52,7 +52,7 @@ const CreatePost: NextPage = () => {
               type="text"
             />
             <Textarea
-              textareaStyle="basic"
+              textareaStyle={TextareaStyle.basic}
               onChange={setDescription}
               value={description}
               placeholder="What's on your mind.."
